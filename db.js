@@ -14,7 +14,17 @@ const pool = mysql.createPool({
 
 let connectionFunctions = {
   save: (content, callback) => {},
-  findAll: (callback) => {},
+  findAll: () => {
+    new Promise((resolve, reject) => {
+      pool.query("SELECT * FROM words", (err, res) => {
+        if (err) {
+          reject(err.message);
+        }
+        console.log(res);
+        resolve(JSON.parse(JSON.stringify(res)));
+      });
+    });
+  },
   findById: (callback) => {},
 };
 
