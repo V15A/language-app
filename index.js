@@ -1,10 +1,12 @@
 const express = require("express");
 
+const db = require("./db.js");
 const port = 3000;
 const app = express();
 
 app.get("/test", (req, res) => {
-  res.send("Test yeh.");
+  let data = db.findAll();
+  res.send(data);
 });
 
 app.listen(port, () => {
