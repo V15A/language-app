@@ -1,0 +1,27 @@
+{
+  "name": "fullstack-project",
+  "version": "1.0.0",
+  "description": "Repository for fullstack application with focus on the backend side.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/V15A/fullstack-project.git"
+  },
+  "author": "Visa Keskinen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/V15A/fullstack-project/issues"
+  },
+  "homepage": "https://github.com/V15A/fullstack-project#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.6.0"
+  }
+}
