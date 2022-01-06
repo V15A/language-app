@@ -1,3 +1,6 @@
+// require .env for authentication to access database
+require("dotenv").config();
+
 const mysql = require("mysql");
 
 // use pool for connections to db
