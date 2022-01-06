@@ -8,3 +8,11 @@ const pool = mysql.createPool({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DB,
 });
+
+let connectionFunctions = {
+  save: (content, callback) => {},
+  findAll: (callback) => {},
+  findById: (callback) => {},
+};
+
+module.exports = connectionFunctions;
