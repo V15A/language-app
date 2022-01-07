@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import WordList from "./word";
+import AddWord from "./addWord";
 
 function App() {
   const [data, setData] = useState([]);
@@ -9,7 +10,7 @@ function App() {
   useEffect(() => {
     async function FetchData() {
       try {
-        let res = await fetch("http://localhost:3050/test");
+        let res = await fetch("http://localhost:3050/");
         const json = await res.json();
         console.log(json);
         setData(json);
@@ -22,11 +23,12 @@ function App() {
   }, []);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <h1 className="App">Loading...</h1>;
   } else {
     return (
       <div className="App">
         <h1>FRONTEND FRONT PAGE</h1>
+        <AddWord />
         <WordList {...data} />
       </div>
     );
