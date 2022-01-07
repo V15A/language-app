@@ -13,7 +13,21 @@ const pool = mysql.createPool({
 });
 
 let connectionFunctions = {
-  save: (content, callback) => {},
+  save: (content) => {
+    return new Promise((resolve, reject) => {
+      pool.query(
+        "INSERT INTO words(english, finnish, ag) VALUES (?, ?, ?)",
+        [content.english, content.finnish, content.tag],
+        (err, res) => {
+          if (err) {
+            console.log(err.message);
+            return reject(err);
+          }
+          resolve(res);
+        }
+      );
+    });
+  },
   findAll: () => {
     return new Promise((resolve, reject) => {
       pool.query("SELECT * FROM words", (err, res) => {
@@ -25,7 +39,7 @@ let connectionFunctions = {
       });
     });
   },
-  findById: (callback) => {},
+  findByTag: (tag) => {},
 };
 
 module.exports = connectionFunctions;
