@@ -1,5 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
+import WordList from "./word";
 
 function App() {
   const [data, setData] = useState([]);
@@ -26,15 +27,7 @@ function App() {
     return (
       <div className="App">
         <h1>FRONTEND FRONT PAGE</h1>
-        <form onSubmit={() => {}}>
-          <span>{data[1].english} </span>
-          <input placeholder="in finnish"></input>{" "}
-          <button onClick={() => {}}>Submit</button>
-          <br />
-          <span>{data[0].english} </span>
-          <input placeholder="in finnish"></input>{" "}
-          <button onClick={() => {}}>Submit</button>
-        </form>
+        <WordList {...data} />
       </div>
     );
   }
