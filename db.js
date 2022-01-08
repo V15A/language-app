@@ -1,9 +1,10 @@
-// require .env for authentication to access database
+// require .env module for authentication to access database
 require("dotenv").config();
 
+// use myqsl for accessing and modifying the database.
 const mysql = require("mysql");
 
-// use pool for connections to db
+// creates pool for connections to db
 const pool = mysql.createPool({
   connectionlimit: 100,
   host: process.env.DB_HOST,
@@ -12,6 +13,12 @@ const pool = mysql.createPool({
   database: process.env.DB_DB,
 });
 
+/**
+ * connectionFunctions contains all needed sql queries for accessing database, adding and deleting data from it.
+ *
+ * All functions return a promise that will be resolved when the sql query has been successfully completed.
+ * In case the sql query fails, the promise will be rejected and proper error message will be logged to console.
+ */
 let connectionFunctions = {
   save: (content) => {
     return new Promise((resolve, reject) => {
