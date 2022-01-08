@@ -22,9 +22,18 @@ app.get("/", async (req, res) => {
 
 app.post("/add", async (req, res) => {
   try {
-    let data = await db.save(req.body);
     console.log("adding");
-    console.log(req.body);
+    let data = await db.save(req.body);
+    res.send(data);
+  } catch (err) {
+    console.log(err.message);
+  }
+});
+
+app.delete("/delete?/:idVar([0-9]+)", async (req, res) => {
+  try {
+    console.log("deleting");
+    let data = await db.delete(req.params.idVar);
     res.send(data);
   } catch (err) {
     console.log(err.message);
