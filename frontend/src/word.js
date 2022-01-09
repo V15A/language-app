@@ -29,7 +29,7 @@ function WordElement(props) {
 
   if (user === "user") {
     return (
-      <div key={props.id}>
+      <div>
         {" "}
         <span>{props.english} </span>
         <input
@@ -42,7 +42,7 @@ function WordElement(props) {
     );
   } else if (user === "admin") {
     return (
-      <div key={props.id}>
+      <div>
         {" "}
         <span>{props.english} </span>
         <span>{props.finnish} </span>
@@ -52,26 +52,39 @@ function WordElement(props) {
   }
 }
 
-async function getWords(tag) {
-  let words = [];
-  try {
-    let data = await fetch("http://localhost:3050/words/" + tag);
-    let json = data.json();
-    words = json;
-  } catch (err) {
-    console.log(err.message);
-  }
-
-  return words;
-}
-
 function WordList(props) {
+  const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    async function FetchData() {
+      try {
+        let res = await fetch("http://localhost:3050/words/" + props.tag);
+        const json = await res.json();
+        //console.log(json);
+        setData(json);
+        setIsLoading(false);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    FetchData();
+  }, []);
+
   let list = [];
-  let words = getWords(props.tag);
-  for (const key in words) {
-    list.push(WordElement(words[key], props.user));
+
+  /*for (const key in words) {
+    console.log("put");
+    list.push(<WordElement {...words[key]} user={props.user} />);
+  }*/
+  if (isLoading) {
+    return <h1>LOADING...</h1>;
+  } else {
+    list = data.map((data) => (
+      <WordElement key={data.id} {...data} user={props.user} />
+    ));
+    return list;
   }
-  return list;
 }
 
 export default WordList;
