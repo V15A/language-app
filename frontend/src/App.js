@@ -27,9 +27,16 @@ function App() {
   } else {
     return (
       <div className="App">
-        <h1>FRONTEND FRONT PAGE</h1>
-        <button href="/user">User</button>
-        <button href="/admin">Admin</button>
+      <h1>Log in to start learning!</h1>
+      <h2>
+        App for learning languages. Currently supports only english to finnish.
+      </h2>
+      <button>
+        <Link to="/user">User</Link>
+      </button>{" "}
+      <button>
+        <Link to="/admin">Admin</Link>
+      </button>
       </div>
     );
   }
