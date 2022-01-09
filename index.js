@@ -7,13 +7,13 @@ app.use(express.json());
 
 app.use(express.static("frontend/build"));
 
-app.get("/", async (req, res) => {
+app.get("/words", async (req, res) => {
   let data = await db.findAll();
   res.send(data);
   console.log(data);
 });
 
-app.post("/add", async (req, res) => {
+app.post("/words/add", async (req, res) => {
   try {
     console.log("adding");
     let data = await db.save(req.body);
@@ -23,7 +23,7 @@ app.post("/add", async (req, res) => {
   }
 });
 
-app.delete("/delete?/:idVar([0-9]+)", async (req, res) => {
+app.delete("/words/delete?/:idVar([0-9]+)", async (req, res) => {
   try {
     console.log("deleting");
     let data = await db.delete(req.params.idVar);

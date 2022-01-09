@@ -10,7 +10,7 @@ function App() {
   useEffect(() => {
     async function FetchData() {
       try {
-        let res = await fetch("http://localhost:3050/");
+        let res = await fetch("http://localhost:3050/words");
         const json = await res.json();
         console.log(json);
         setData(json);
