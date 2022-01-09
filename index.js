@@ -5,14 +5,7 @@ const port = 3050;
 const app = express();
 app.use(express.json());
 
-// for debugging so that react app can access the db
-app.use((req, res, next) => {
-  res.header({
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Headers": "*",
-  });
-  next();
-});
+app.use(express.static("frontend/build"));
 
 app.get("/", async (req, res) => {
   let data = await db.findAll();
