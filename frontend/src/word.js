@@ -38,6 +38,17 @@ function WordElement(props) {
       <button onClick={handleSubmit}>Submit</button> {renderFeedback()}
     </div>
   );
+async function getWords(tag) {
+  let words = [];
+  try {
+    let data = await fetch("http://localhost:3050/words/" + tag);
+    let json = data.json();
+    words = json;
+  } catch (err) {
+    console.log(err.message);
+  }
+
+  return words;
 }
 
 function WordList(props) {
