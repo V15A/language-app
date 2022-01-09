@@ -28,8 +28,8 @@ function App() {
     return (
       <div className="App">
         <h1>FRONTEND FRONT PAGE</h1>
-        <AddWord />
-        <WordList {...data} />
+        <button href="/user">User</button>
+        <button href="/admin">Admin</button>
       </div>
     );
   }
