@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 function WordElement(props) {
   const [correct, setCorrect] = useState(0);
   const [quess, setQuess] = useState("");
+  const user = props.user;
 
   const handleSubmit = () => {
     if (quess === props.finnish) {
@@ -26,18 +27,31 @@ function WordElement(props) {
     setQuess(event.target.value);
   };
 
-  return (
-    <div key={props.id}>
-      {" "}
-      <span>{props.english} </span>
-      <input
-        placeholder="in finnish"
-        value={quess}
-        onChange={handleChange}
-      ></input>{" "}
-      <button onClick={handleSubmit}>Submit</button> {renderFeedback()}
-    </div>
-  );
+  if (user === "user") {
+    return (
+      <div key={props.id}>
+        {" "}
+        <span>{props.english} </span>
+        <input
+          placeholder="in finnish"
+          value={quess}
+          onChange={handleChange}
+        ></input>{" "}
+        <button onClick={handleSubmit}>Submit</button> {renderFeedback()}
+      </div>
+    );
+  } else if (user === "admin") {
+    return (
+      <div key={props.id}>
+        {" "}
+        <span>{props.english} </span>
+        <span>{props.finnish} </span>
+        <button /*onClick={handleDelete}*/>Delete</button> {renderFeedback()}
+      </div>
+    );
+  }
+}
+
 async function getWords(tag) {
   let words = [];
   try {
@@ -53,8 +67,9 @@ async function getWords(tag) {
 
 function WordList(props) {
   let list = [];
-  for (const key in props) {
-    list.push(WordElement(props[key]));
+  let words = getWords(props.tag);
+  for (const key in words) {
+    list.push(WordElement(words[key], props.user));
   }
   return list;
 }
