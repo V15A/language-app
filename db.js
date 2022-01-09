@@ -23,7 +23,7 @@ let connectionFunctions = {
   save: (content) => {
     return new Promise((resolve, reject) => {
       pool.query(
-        "INSERT INTO words(english, finnish, ag) VALUES (?, ?, ?)",
+        "INSERT INTO words(english, finnish, tag) VALUES (?, ?, ?)",
         [content.english, content.finnish, content.tag],
         (err, res) => {
           if (err) {
