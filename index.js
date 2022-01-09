@@ -13,6 +13,16 @@ app.get("/words", async (req, res) => {
   console.log(data);
 });
 
+app.get("/words/:tag([0-9]+)", async (req, res) => {
+  try {
+    console.log("getting words with tag: " + req.params.tag);
+    let data = await db.findByTag(req.params.tag);
+    res.send(data);
+  } catch (err) {
+    console.log(err.message);
+  }
+});
+
 app.post("/words/add", async (req, res) => {
   try {
     console.log("adding");
