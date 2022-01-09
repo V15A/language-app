@@ -1,6 +1,6 @@
 import WordList from "../word";
 
-export default function Admin(data) {
+export default function User(data) {
   return (
     <div>
       <WordList {...data} />
