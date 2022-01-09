@@ -57,7 +57,17 @@ let connectionFunctions = {
       });
     });
   },
-  findByTag: (tag) => {},
+  findByTag: (tag) => {
+    return new Promise((resolve, reject) => {
+      pool.query("SELECT * FROM words WHERE tag = ?", [tag], (err, res) => {
+        if (err) {
+          console.log(err.message);
+          return reject(err.message);
+        }
+        resolve(JSON.parse(JSON.stringify(res)));
+      });
+    });
+  },
 };
 
 module.exports = connectionFunctions;
