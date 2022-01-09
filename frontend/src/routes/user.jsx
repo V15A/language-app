@@ -1,9 +1,9 @@
 import WordList from "../word";
 
-export default function User(data) {
+export default function User() {
   return (
     <div>
-      <WordList {...data} />
+      <WordList user="user" tag="animal" />
     </div>
   );
 }
