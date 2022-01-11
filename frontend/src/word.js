@@ -5,21 +5,15 @@ function WordElement(props) {
   const [quess, setQuess] = useState("");
   const user = props.user;
 
-  const handleSubmit = () => {
-    if (quess === props.finnish) {
-      setCorrect(1);
-      console.log(correct);
-    } else {
-      setCorrect(-1);
-      console.log(correct);
-    }
-  };
+  useEffect(() => {
+    return handleQuess();
+  }, [quess]);
 
-  const renderFeedback = () => {
-    if (correct === 1) {
-      return <span>Correct</span>;
-    } else if (correct === -1) {
-      return <span>Wrong</span>;
+  const handleQuess = () => {
+    if (quess === props.finnish) {
+      props.addCorrect();
+    } else {
+      console.log(correct);
     }
   };
 
@@ -36,8 +30,7 @@ function WordElement(props) {
           placeholder="in finnish"
           value={quess}
           onChange={handleChange}
-        ></input>{" "}
-        <button onClick={handleSubmit}>Submit</button> {renderFeedback()}
+        ></input>
       </div>
     );
   } else if (user === "admin") {
@@ -46,7 +39,7 @@ function WordElement(props) {
         {" "}
         <span>{props.english} </span>
         <span>{props.finnish} </span>
-        <button /*onClick={handleDelete}*/>Delete</button> {renderFeedback()}
+        <button /*onClick={handleDelete}*/>Delete</button>
       </div>
     );
   }
@@ -55,6 +48,7 @@ function WordElement(props) {
 function WordList(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
+  const [correct, setCorrect] = useState(0);
 
   useEffect(() => {
     async function FetchData() {
@@ -69,21 +63,36 @@ function WordList(props) {
       }
     }
     FetchData();
-  }, []);
+  }, [props.tag]);
 
   let list = [];
 
-  /*for (const key in words) {
-    console.log("put");
-    list.push(<WordElement {...words[key]} user={props.user} />);
-  }*/
+  const addCorect = () => {
+    setCorrect(correct + 1);
+  };
+
   if (isLoading) {
     return <h1>LOADING...</h1>;
   } else {
     list = data.map((data) => (
-      <WordElement key={data.id} {...data} user={props.user} />
+      <WordElement
+        key={data.id}
+        {...data}
+        user={props.user}
+        addCorrect={addCorect}
+      />
     ));
-    return list;
+    if (props.user === "admin") {
+      return list;
+    } else {
+      let partialList = list.splice(0, 5);
+      return (
+        <div>
+          {partialList}{" "}
+          <button onClick={() => alert(`${correct}/5 correct!`)}>Submit</button>
+        </div>
+      );
+    }
   }
 }
 
