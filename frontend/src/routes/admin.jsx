@@ -1,6 +1,7 @@
 import WordList from "../word";
 import AddWord from "../addWord";
 import React, { useState } from "react";
+import { Autocomplete, TextField } from "@mui/material";
 
 export default function Admin() {
   const [tag, setTag] = useState("");
@@ -12,8 +13,18 @@ export default function Admin() {
   return (
     <div className="App">
       <h1>Admin view</h1>
-      <input onChange={tagChange}></input>
       <AddWord />
+      <Autocomplete
+        onChange={(event, newValue) => {
+          setTag(newValue);
+        }}
+        id="combo-box-demo"
+        options={["tag", "animal", "vehicle"]}
+        sx={{ margin: "auto", width: 250 }}
+        renderInput={(params) => (
+          <TextField className="App" {...params} label="tag" />
+        )}
+      />
       <WordList user="admin" tag={tag} />
     </div>
   );

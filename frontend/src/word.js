@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Button, TextField } from "@mui/material";
 
 function WordElement(props) {
   const [correct, setCorrect] = useState(0);
@@ -25,12 +26,13 @@ function WordElement(props) {
     return (
       <div>
         {" "}
-        <span>{props.english} </span>
-        <input
-          placeholder="in finnish"
-          value={quess}
+        <span style={{ padding: "10px" }}>{props.english} </span>
+        <TextField
+          id="outlined-basic"
+          label="Finnish"
+          variant="outlined"
           onChange={handleChange}
-        ></input>
+        />
       </div>
     );
   } else if (user === "admin") {
@@ -39,7 +41,9 @@ function WordElement(props) {
         {" "}
         <span>{props.english} </span>
         <span>{props.finnish} </span>
-        <button /*onClick={handleDelete}*/>Delete</button>
+        <Button variant="contained" color="error" /*onClick={handleDelete}*/>
+          Delete
+        </Button>
       </div>
     );
   }
@@ -89,7 +93,12 @@ function WordList(props) {
       return (
         <div>
           {partialList}{" "}
-          <button onClick={() => alert(`${correct}/5 correct!`)}>Submit</button>
+          <Button
+            variant="contained"
+            onClick={() => alert(`${correct}/5 correct!`)}
+          >
+            Submit
+          </Button>
         </div>
       );
     }

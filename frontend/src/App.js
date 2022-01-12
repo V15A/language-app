@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
 
 function App() {
   return (
@@ -9,12 +10,12 @@ function App() {
       <h2>
         App for learning languages. Currently supports only english to finnish.
       </h2>
-      <button>
+      <Button variant="contained">
         <Link to="/user">User</Link>
-      </button>{" "}
-      <button>
+      </Button>{" "}
+      <Button variant="contained">
         <Link to="/admin">Admin</Link>
-      </button>
+      </Button>
     </div>
   );
 }

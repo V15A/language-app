@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Button, TextField } from "@mui/material";
 
 function AddWord() {
   const [finnish, setFinnish] = useState("");
@@ -45,21 +46,30 @@ function AddWord() {
   } else {
     return (
       <div>
-        <input
-          placeholder="Finnish"
-          value={finnish}
+        <TextField
+          id="outlined-basic"
+          label="Finnish"
+          variant="outlined"
           onChange={handleFinChange}
-        ></input>
+        />
         <br />
-        <input
-          placeholder="English"
-          value={english}
+        <TextField
+          id="outlined-basic"
+          label="English"
+          variant="outlined"
           onChange={handleEngChange}
-        ></input>
+        />
         <br />
-        <input placeholder="Tag" value={tag} onChange={handleTagChange}></input>
+        <TextField
+          id="outlined-basic"
+          label="Tag"
+          variant="outlined"
+          onChange={handleTagChange}
+        />
         <br />
-        <button onClick={add}>Add Word</button>
+        <Button variant="contained" onClick={add}>
+          Add Word
+        </Button>
       </div>
     );
   }
