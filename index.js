@@ -3,6 +3,10 @@ const cors = require("cors");
 
 const db = require("./db.js");
 const port = 3050;
+
+/**
+ * Express application that has necessary functions for getting data from database.
+ */
 const app = express();
 app.use(express.json());
 app.use(cors());
