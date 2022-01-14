@@ -17,8 +17,8 @@ export default function User() {
           setTag(newValue);
         }}
         id="combo-box-demo"
-        options={["tag", "animal", "vehicle"]}
-        sx={{ margin: "auto", width: 250 }}
+        options={["animal", "vehicle"]}
+        sx={{ margin: "auto", marginTop: "10px", width: 250 }}
         renderInput={(params) => (
           <TextField className="App" {...params} label="tag" />
         )}
