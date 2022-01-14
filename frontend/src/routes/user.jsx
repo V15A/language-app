@@ -1,4 +1,4 @@
-import WordList from "../word";
+import WordTable from "../word";
 import React, { useState } from "react";
 import { Autocomplete, TextField } from "@mui/material";
 
@@ -8,6 +8,7 @@ export default function User() {
   const tagChange = (event) => {
     setTag(event.target.value);
   };
+
   return (
     <div className="App">
       <h1>User view</h1>
@@ -22,7 +23,7 @@ export default function User() {
           <TextField className="App" {...params} label="tag" />
         )}
       />
-      <WordList user="user" tag={tag} />
+      <WordTable user="user" tag={tag} />
     </div>
   );
 }

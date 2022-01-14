@@ -1,4 +1,4 @@
-import WordList from "../word";
+import WordTable from "../word";
 import AddWord from "../addWord";
 import React, { useState } from "react";
 import { Autocomplete, TextField } from "@mui/material";
@@ -25,7 +25,7 @@ export default function Admin() {
           <TextField className="App" {...params} label="tag" />
         )}
       />
-      <WordList user="admin" tag={tag} />
+      <WordTable user="admin" tag={tag} />
     </div>
   );
 }
