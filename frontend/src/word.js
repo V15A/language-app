@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, TextField } from "@mui/material";
+import DeleteWord from "./deleteWord";
 import {
   Table,
   TableBody,
@@ -57,6 +58,7 @@ function WordTable(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
   const [correct, setCorrect] = useState(0);
+  const [update, setUpdate] = useState(false);
 
   useEffect(() => {
     async function FetchData() {
@@ -69,16 +71,20 @@ function WordTable(props) {
         console.log(err);
       }
     }
-    FetchData();
-    setCorrect(0);
-  }, [props.tag]);
 
-  const addCorrect = (bool) => {
-    if (bool) {
+    FetchData();
+  }, [props.tag, update]);
+
+  const addCorrect = (yes) => {
+    if (yes) {
       setCorrect(correct + 1);
-    } else if (!bool && correct > 0) {
+    } else if (!yes && correct > 0) {
       setCorrect(correct - 1);
     }
+  };
+
+  const handleUpdate = () => {
+    setUpdate(!update);
   };
 
   if (isLoading) {
@@ -160,7 +166,12 @@ function WordTable(props) {
                 <TableCell align="center">{row.english}</TableCell>
                 <TableCell align="center">{row.finnish}</TableCell>
                 <TableCell align="center">
-                  <Button variant="contained" /*onClick={promptDelete}*/>
+                  <Button
+                    variant="contained"
+                    onClick={() =>
+                      DeleteWord({ update: handleUpdate, id: row.id })
+                    }
+                  >
                     Delete
                   </Button>
                 </TableCell>
