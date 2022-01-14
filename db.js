@@ -70,7 +70,7 @@ let connectionFunctions = {
   },
   deleteById: (id) => {
     return new Promise((resolve, reject) => {
-      pool.query("DELETE * FROM words WHERE id = ?", [id], (err, res) => {
+      pool.query("DELETE FROM words WHERE id = ?", [id], (err, res) => {
         if (err) {
           console.log(err.message);
           return reject(err);
