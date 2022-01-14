@@ -7,6 +7,9 @@ import User from "./routes/user";
 import Admin from "./routes/admin";
 import reportWebVitals from "./reportWebVitals";
 
+/**
+ * Render app to browser. Use routes for different pages/views of the app.
+ */
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
