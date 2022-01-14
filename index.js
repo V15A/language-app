@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 
 const db = require("./db.js");
-const port = 3050;
+const port = process.env.PORT || 8080;
 
 /**
  * Express application that has necessary functions for getting data from database.
