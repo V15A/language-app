@@ -6,6 +6,28 @@ function AddWord() {
   const [english, setEnglish] = useState("");
   const [tag, setTag] = useState("");
   const [isSending, setIsSending] = useState(false);
+  const [disabled, setDisabled] = useState(true);
+
+  useEffect(() => {
+    const submitConditions = () => {
+      if (
+        tag.trim().length > 1 &&
+        tag.trim().match(/^[a-zA-Z/]+$/) &&
+        finnish.trim().length > 1 &&
+        finnish.trim().match(/^[a-zA-Z]+$/) &&
+        english.trim().length > 1 &&
+        english.trim().match(/^[a-zA-Z]+$/)
+      ) {
+        setDisabled(false);
+      } else {
+        setDisabled(true);
+      }
+    };
+
+    submitConditions();
+
+    return;
+  }, [finnish, english, tag]);
 
   const handleFinChange = (event) => {
     setFinnish(event.target.value);
@@ -29,14 +51,14 @@ function AddWord() {
     try {
       setIsSending(true);
       let res = await fetch("http://localhost:3050/words/add", conf);
-      const json = await res.json();
-      console.log(json);
+      console.log(res);
       setIsSending(false);
     } catch (err) {
       setIsSending(false);
-      console.log(err);
+      console.log("err.message");
     }
   };
+
   if (isSending) {
     return (
       <div>
@@ -69,7 +91,12 @@ function AddWord() {
           onChange={handleTagChange}
         />
         <br />
-        <Button variant="contained" sx={{ marginTop: "7px" }} onClick={add}>
+        <Button
+          disabled={disabled}
+          variant="contained"
+          sx={{ marginTop: "7px" }}
+          onClick={add}
+        >
           Add Word
         </Button>
       </div>
