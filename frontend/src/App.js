@@ -3,6 +3,11 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 
+/**
+ * A component that allows choosing a page between user and admin.
+ *
+ * @returns short intro to app and user and admin buttons.
+ */
 function App() {
   return (
     <div className="App">
