@@ -3,6 +3,11 @@ import AddWord from "../addWord";
 import React, { useState } from "react";
 import { Autocomplete, TextField } from "@mui/material";
 
+/**
+ * This component forms the user/student page.
+ *
+ * @returns the view of admin page.
+ */
 export default function Admin() {
   const [tag, setTag] = useState("");
 
