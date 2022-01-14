@@ -57,6 +57,7 @@ function AddWord() {
           id="outlined-basic"
           label="English"
           variant="outlined"
+          sx={{ marginTop: "7px" }}
           onChange={handleEngChange}
         />
         <br />
@@ -64,10 +65,11 @@ function AddWord() {
           id="outlined-basic"
           label="Tag"
           variant="outlined"
+          sx={{ marginTop: "7px" }}
           onChange={handleTagChange}
         />
         <br />
-        <Button variant="contained" onClick={add}>
+        <Button variant="contained" sx={{ marginTop: "7px" }} onClick={add}>
           Add Word
         </Button>
       </div>
