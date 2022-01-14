@@ -11,6 +11,12 @@ import {
   Paper,
 } from "@mui/material";
 
+/**
+ * A component that validates user quess with given finnish word and adds correct answers to parents counter.
+ *
+ * @param {*} props should include parent score adding function and finnish word to compare with the quess.
+ * @returns textfield element in which the user will insert their quess.
+ */
 function WordQuessElement(props) {
   const [correct, setCorrect] = useState(0);
   const [quess, setQuess] = useState("");
@@ -54,6 +60,12 @@ function WordQuessElement(props) {
 
 export default WordTable;
 
+/**
+ * A component that returns a table with words and quessfields or full word pairs with possibility to delete them.
+ *
+ * @param {*} props includes user role and tag for words that user wants to see.
+ * @returns table of words matchin the given tag.
+ */
 function WordTable(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
