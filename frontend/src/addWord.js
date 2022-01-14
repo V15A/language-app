@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Button, TextField } from "@mui/material";
 
+/**
+ * A component that returns 3 textfields and submit button to add new words to db.
+ *
+ * @returns
+ */
 function AddWord() {
   const [finnish, setFinnish] = useState("");
   const [english, setEnglish] = useState("");
@@ -9,6 +14,9 @@ function AddWord() {
   const [disabled, setDisabled] = useState(true);
 
   useEffect(() => {
+    /**
+     * A function to enable and disable submit button depending on the content of @tag @finnish and @english
+     */
     const submitConditions = () => {
       if (
         tag.trim().length > 1 &&
@@ -41,6 +49,9 @@ function AddWord() {
     setTag(event.target.value);
   };
 
+  /**
+   * Async function that posts wordpair with tag to database.
+   */
   const add = async () => {
     const conf = {
       method: "POST",
