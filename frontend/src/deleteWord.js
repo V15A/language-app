@@ -8,7 +8,7 @@
  */
 async function DeleteWord(props) {
   try {
-    let res = await fetch(`http://localhost:3050/words/delete/${props.id}`, {
+    let res = await fetch(`/words/delete/${props.id}`, {
       method: "DELETE",
     });
     console.log(res.status);

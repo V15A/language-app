@@ -61,7 +61,7 @@ function AddWord() {
     console.log(conf);
     try {
       setIsSending(true);
-      let res = await fetch("http://localhost:3050/words/add", conf);
+      let res = await fetch("/words/add", conf);
       console.log(res);
       setIsSending(false);
     } catch (err) {

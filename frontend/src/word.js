@@ -75,7 +75,7 @@ function WordTable(props) {
   useEffect(() => {
     async function FetchData() {
       try {
-        let res = await fetch("http://localhost:3050/words/" + props.tag);
+        let res = await fetch("/words/" + props.tag);
         const json = await res.json();
         setData(json);
         setIsLoading(false);
