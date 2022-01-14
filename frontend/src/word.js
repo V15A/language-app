@@ -63,7 +63,6 @@ function WordTable(props) {
       try {
         let res = await fetch("http://localhost:3050/words/" + props.tag);
         const json = await res.json();
-        //console.log(json);
         setData(json);
         setIsLoading(false);
       } catch (err) {
