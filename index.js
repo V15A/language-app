@@ -10,9 +10,13 @@ app.use(cors());
 app.use(express.static("frontend/build"));
 
 app.get("/words", async (req, res) => {
-  let data = await db.findAll();
-  res.send(data);
-  console.log(data);
+  try {
+    let data = await db.findAll();
+    res.send(data);
+    console.log(data);
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 app.get("/words/:tag([a-z]+)", async (req, res) => {
@@ -21,6 +25,7 @@ app.get("/words/:tag([a-z]+)", async (req, res) => {
     let data = await db.findByTag(req.params.tag);
     res.send(data);
   } catch (err) {
+    res.status(403).send("Invalid arguments");
     console.log(err.message);
   }
 });
@@ -31,16 +36,18 @@ app.post("/words/add", async (req, res) => {
     let data = await db.save(req.body);
     res.send(data);
   } catch (err) {
+    res.status(403).send("Invalid arguments");
     console.log(err.message);
   }
 });
 
-app.delete("/words/delete?/:idVar([0-9]+)", async (req, res) => {
+app.delete("/words/delete/:idVar([0-9]+)", async (req, res) => {
   try {
     console.log("deleting");
-    let data = await db.delete(req.params.idVar);
+    let data = await db.deleteById(req.params.idVar);
     res.send(data);
   } catch (err) {
+    res.status(404).send("Could not delete, make sure id is valid");
     console.log(err.message);
   }
 });
