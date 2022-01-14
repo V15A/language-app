@@ -2,6 +2,11 @@ import WordTable from "../word";
 import React, { useState } from "react";
 import { Autocomplete, TextField } from "@mui/material";
 
+/**
+ * This component forms the user/student page.
+ *
+ * @returns the view of user page.
+ */
 export default function User() {
   const [tag, setTag] = useState("");
 
