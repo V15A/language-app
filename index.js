@@ -1,5 +1,5 @@
 const express = require("express");
-const cors = require("cors");
+const path = require("path");
 
 const db = require("./db.js");
 const port = process.env.PORT || 8080;
@@ -9,9 +9,8 @@ const port = process.env.PORT || 8080;
  */
 const app = express();
 app.use(express.json());
-app.use(cors());
 
-app.use(express.static(__dirname, "frontend/build"));
+app.use(express.static(path.join(__dirname, "frontend/build")));
 
 app.get("/words", async (req, res) => {
   try {
