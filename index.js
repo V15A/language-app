@@ -11,6 +11,7 @@ const app = express();
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "frontend/build")));
+app.use("*", express.static(path.join(__dirname, "frontend/build")));
 
 app.get("/words", async (req, res) => {
   try {
