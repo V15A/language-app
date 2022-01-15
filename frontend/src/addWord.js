@@ -22,7 +22,7 @@ function AddWord() {
         tag.trim().length > 1 &&
         tag.trim().match(/^[a-zA-Z/]+$/) &&
         finnish.trim().length > 1 &&
-        finnish.trim().match(/^[a-zA-Z]+$/) &&
+        finnish.trim().match(/^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/) &&
         english.trim().length > 1 &&
         english.trim().match(/^[a-zA-Z]+$/)
       ) {
