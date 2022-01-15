@@ -85,6 +85,7 @@ function WordTable(props) {
     }
 
     FetchData();
+    setCorrect(0);
   }, [props.tag, update]);
 
   const addCorrect = (yes) => {
