@@ -140,6 +140,7 @@ function WordTable(props) {
         </TableContainer>
         <Button
           variant="contained"
+          sx={{ marginTop: "7px" }}
           onClick={() => alert(`${correct}/${data.length} correct!`)}
         >
           Check
