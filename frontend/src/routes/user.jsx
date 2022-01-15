@@ -9,10 +9,32 @@ import { Autocomplete, TextField } from "@mui/material";
  */
 export default function User() {
   const [tag, setTag] = useState("");
+  let tags = [];
 
-  const tagChange = (event) => {
-    setTag(event.target.value);
-  };
+  /**
+   * Function for getting all currently existing tags without duplicates.
+   */
+  async function GetTags() {
+    try {
+      let res = await fetch("/words/");
+      const json = await res.json();
+      for (const key in json) {
+        let exists = false;
+        for (let i = 0; i < tags.length; i++) {
+          if (tags[i] === json[key].tag) {
+            exists = true;
+          }
+        }
+        if (!exists) {
+          tags.push(json[key].tag);
+        }
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  GetTags();
 
   return (
     <div className="App">
@@ -22,7 +44,7 @@ export default function User() {
           setTag(newValue);
         }}
         id="combo-box-demo"
-        options={["animal", "vehicle"]}
+        options={tags}
         sx={{ margin: "auto", marginTop: "10px", width: 250 }}
         renderInput={(params) => (
           <TextField className="App" {...params} label="tag" />
