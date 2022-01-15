@@ -11,7 +11,6 @@ const app = express();
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "frontend/build")));
-app.use("*", express.static(path.join(__dirname, "frontend/build")));
 
 app.get("/words", async (req, res) => {
   try {
@@ -55,6 +54,8 @@ app.delete("/words/delete/:idVar([0-9]+)", async (req, res) => {
     console.log(err.message);
   }
 });
+
+app.use("*", express.static(path.join(__dirname, "frontend/build")));
 
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
