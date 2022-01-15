@@ -38,7 +38,7 @@ function WordQuessElement(props) {
   };
 
   const handleChange = (event) => {
-    if (event.target.value.trim().match(/^[a-zA-Z]+$/)) {
+    if (event.target.value.trim().match(/^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/)) {
       setQuess(event.target.value.trim());
       setInputErr(false);
     } else {
