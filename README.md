@@ -3,7 +3,7 @@
 This app currently supports learning in english to finnish. 
 
 ## Features
-Two different views offer ability for normal user/student to learn new words and get feedback on how many words they get right. For admins/students there is possibility to add new word pairs with desired tag as well as delete and edit existing word pairs.
+Two different views offer ability for normal user/student to learn new words and get feedback on how many words they got right. For admins/teachers there is a possibility to add new word pairs with desired tag as well as delete existing word pairs.
 
 ## How to use
 link to heroku https://visa-language-app.herokuapp.com/
