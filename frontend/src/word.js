@@ -27,10 +27,10 @@ function WordQuessElement(props) {
   }, [quess]);
 
   const handleQuess = () => {
-    if (quess.toLowerCase() === props.finnish && !correct) {
+    if (quess.toLowerCase() === props.finnish.toLowerCase() && !correct) {
       props.addCorrect(true);
       setCorrect(true);
-    } else if (quess.toLowerCase() !== props.finnish && correct) {
+    } else if (quess.toLowerCase() !== props.finnish.toLowerCase() && correct) {
       props.addCorrect(false);
       setCorrect(false);
       console.log(correct);
