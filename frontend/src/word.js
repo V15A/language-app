@@ -190,7 +190,7 @@ function WordTable(props) {
                   </Button>
                 </TableCell>
                 <TableCell align="center">
-                  <Button variant="contained" /*onClick={promptEdit}*/>
+                  <Button variant="disabled" /*onClick={promptEdit}*/>
                     Edit
                   </Button>
                 </TableCell>
