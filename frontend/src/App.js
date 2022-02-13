@@ -16,10 +16,14 @@ function App() {
         App for learning languages. Currently supports only english to finnish.
       </h2>
       <Button variant="contained">
-        <Link to="/user">User</Link>
+        <Link style={{ textDecoration: "none", color: "white" }} to="/user">
+          User
+        </Link>
       </Button>{" "}
       <Button variant="contained">
-        <Link to="/admin">Admin</Link>
+        <Link style={{ textDecoration: "none", color: "white" }} to="/admin">
+          Admin
+        </Link>
       </Button>
     </div>
   );
