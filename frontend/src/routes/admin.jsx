@@ -41,6 +41,7 @@ export default function Admin() {
   return (
     <div className="App">
       <h1>Admin view</h1>
+      <p>NOTE: Edit buttons disabled for now</p>
       <AddWord />
       <Autocomplete
         onChange={(event, newValue) => {
