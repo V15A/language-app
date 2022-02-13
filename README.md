@@ -16,9 +16,6 @@ link to heroku https://visa-language-app.herokuapp.com/
 
 ![kuva](https://user-images.githubusercontent.com/77538238/149604934-1d918303-fd95-404b-a935-9abb3f155d39.png)
 
-## Video
-[![Apologies for the bad mic quality](https://img.youtube.com/vi/3npOnHx7XTk/0.jpg)](https://www.youtube.com/watch?v=3npOnHx7XTk)
-
 ## Used technologies
 - Backend
   - Node.js
