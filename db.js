@@ -90,6 +90,21 @@ let connectionFunctions = {
       });
     });
   },
+  editById: (content) => {
+    return new Promise((resolve, reject) => {
+      pool.query(
+        "UPDATE words SET english = ? AND finnish = ? WHERE id = ?",
+        [content.english, content.finnish, content.id],
+        (err, res) => {
+          if (err) {
+            console.log(err.message);
+            return reject(err);
+          }
+          resolve(res);
+        }
+      );
+    });
+  },
 };
 
 module.exports = connectionFunctions;
