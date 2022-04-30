@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button, TextField } from "@mui/material";
 import DeleteWord from "./deleteWord";
+import EditPromt from "./edit";
 import {
   Table,
   TableBody,
@@ -191,9 +192,7 @@ function WordTable(props) {
                   </Button>
                 </TableCell>
                 <TableCell align="center">
-                  <Button variant="disabled" /*onClick={promptEdit}*/>
-                    Edit
-                  </Button>
+                  <EditPromt {...row} />
                 </TableCell>
               </TableRow>
             ))}
