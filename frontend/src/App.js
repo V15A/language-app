@@ -11,9 +11,9 @@ import { Button } from "@mui/material";
 function App() {
   return (
     <div className="App">
-      <h1>Log in to start learning!</h1>
+      <h1>Choose user to learn or admin to modify the words!</h1>
       <h2>
-        App for learning languages. Currently supports only english to finnish.
+        App for learning languages. Currently supports english to finnish.
       </h2>
       <Button variant="contained">
         <Link style={{ textDecoration: "none", color: "white" }} to="/user">
