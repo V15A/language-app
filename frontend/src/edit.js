@@ -68,32 +68,57 @@ function EditPromt(content) {
         Edit
       </Button>
       <Dialog open={open} onClose={() => setOpen(false)}>
-        <h1>Edit word</h1>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            EditWords(newContent);
-            setOpen(false);
-          }}
-        >
-          <label>
-            English:
-            <input
-              type="text"
-              value={newContent.english}
-              onChange={(e) => setContent(e, "english")}
-            />
-          </label>
-          <label>
-            Finnish:
-            <input
-              type="text"
-              value={newContent.finnish}
-              onChange={(e) => setContent(e, "finnish")}
-            />
-          </label>
-          <button type="submit">Submit</button>
-        </form>
+        <DialogTitle>Edit wordpair</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            To subscribe to this website, please enter your email address here.
+            We will send updates occasionally.
+          </DialogContentText>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="finnish"
+            label="Finnish"
+            value={newContent.finnish}
+            onChange={(e) => setContent(e, "finnish")}
+            type="text"
+            fullWidth
+            variant="standard"
+          />
+          <TextField
+            autoFocus
+            margin="dense"
+            id="english"
+            label="English"
+            type="text"
+            value={newContent.english}
+            onChange={(e) => setContent(e, "english")}
+            fullWidth
+            variant="standard"
+          />
+          <TextField
+            autoFocus
+            margin="dense"
+            id="tag"
+            label="Tag"
+            type="text"
+            value={newContent.tag}
+            onChange={(e) => setContent(e, "tag")}
+            fullWidth
+            variant="standard"
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setOpen(false)}>Cancel</Button>
+          <Button
+            onClick={() => {
+              EditWords(newContent);
+              setOpen(false);
+            }}
+          >
+            Submit
+          </Button>
+        </DialogActions>
       </Dialog>
     </div>
   );
