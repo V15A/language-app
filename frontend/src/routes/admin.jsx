@@ -47,7 +47,7 @@ export default function Admin() {
         onChange={(event, newValue) => {
           setTag(newValue);
         }}
-        id="combo-box-demo"
+        id="choose-tag"
         options={tags}
         sx={{ margin: "auto", marginTop: "10px", width: 250 }}
         renderInput={(params) => (
