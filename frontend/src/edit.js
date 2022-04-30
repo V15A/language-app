@@ -71,8 +71,8 @@ function EditPromt(content) {
         <DialogTitle>Edit wordpair</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            To subscribe to this website, please enter your email address here.
-            We will send updates occasionally.
+            Edit any or all of the fields below. Submit to save changes or
+            cancel to discard changes.
           </DialogContentText>
           <TextField
             autoFocus
