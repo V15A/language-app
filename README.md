@@ -1,22 +1,27 @@
 # Study languages - App
+
 ## Short description
+
 This app currently supports learning in english to finnish. 
 
 ## Features
-Two different views offer ability for normal user/student to learn new words and get feedback on how many words they got right. For admins/teachers there is a possibility to add new word pairs with desired tag as well as delete existing word pairs.
+
+Two different views offer ability for normal user/student to learn new words and get feedback on how many words they got right. For admins/teachers there is a possibility to add new word pairs with desired tag as well as delete and modify existing entries.
 
 ## How to use
+
 link to heroku https://visa-language-app.herokuapp.com/
 
 ## Screenshots
 
-![kuva](https://user-images.githubusercontent.com/77538238/149605008-42a76c04-7933-4434-b97b-d4136f9ab04b.png)
+![Image](https://user-images.githubusercontent.com/77538238/166107716-3d4a1c96-d7d9-48ae-b94d-072cfda8ce52.png)
+![Image2](https://user-images.githubusercontent.com/77538238/166107746-5ec10c62-c4e4-47d5-8691-c799fef8d243.png)
+![Image3](https://user-images.githubusercontent.com/77538238/166107749-c5b49459-b2d4-4d5e-836d-ddea7c5a252c.png)
+![Image4](https://user-images.githubusercontent.com/77538238/166107772-067e6f3e-dde2-4618-949c-902f0af6221f.png)
 
-![kuva](https://user-images.githubusercontent.com/77538238/149604952-1b8c2243-b459-4d8b-bbec-2be266a117e3.png)
-
-![kuva](https://user-images.githubusercontent.com/77538238/149604934-1d918303-fd95-404b-a935-9abb3f155d39.png)
 
 ## Used technologies
+
 - Backend
   - Node.js
   - Express
