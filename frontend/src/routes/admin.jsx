@@ -11,7 +11,7 @@ import { Autocomplete, TextField } from "@mui/material";
 export default function Admin() {
   const [tag, setTag] = useState("");
 
-  let tags = [];
+  let tags = ["all"];
 
   /**
    * Function for getting all currently existing tags without duplicates.
@@ -44,10 +44,15 @@ export default function Admin() {
       <AddWord />
       <Autocomplete
         onChange={(event, newValue) => {
-          setTag(newValue);
+          if (newValue === "all") {
+            setTag("");
+          } else {
+            setTag(newValue);
+          }
         }}
         id="choose-tag"
         options={tags}
+        defaultValue="all"
         sx={{ margin: "auto", marginTop: "10px", width: 250 }}
         renderInput={(params) => (
           <TextField className="App" {...params} label="tag" />
