@@ -182,6 +182,7 @@ function WordTable(props) {
                 <TableCell align="center">
                   <Button
                     variant="contained"
+                    color="error"
                     onClick={() =>
                       DeleteWord({ update: handleUpdate, id: row.id })
                     }
