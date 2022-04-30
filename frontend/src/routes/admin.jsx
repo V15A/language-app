@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Autocomplete, TextField } from "@mui/material";
 
 /**
- * This component forms the user/student page.
+ * This component forms the admin page.
  *
  * @returns the view of admin page.
  */
