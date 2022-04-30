@@ -1,5 +1,11 @@
 import React from "react";
-import { Button, Dialog } from "@mui/material";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
 
 async function EditWords(content) {
   const conf = {
@@ -8,6 +14,7 @@ async function EditWords(content) {
     body: JSON.stringify({
       english: content.english,
       finnish: content.finnish,
+      tag: content.tag,
       id: content.id,
     }),
   };
@@ -26,21 +33,31 @@ function EditPromt(content) {
   const [newContent, setNewContent] = React.useState({
     english: content.english,
     finnish: content.finnish,
+    tag: content.tag,
     id: content.id,
   });
 
-  const setContent = (e, lang) => {
+  const setContent = (e, id) => {
     e.preventDefault();
-    if (lang === "english") {
+    if (id === "english") {
       setNewContent({
         finnish: newContent.finnish,
         english: e.target.value,
+        tag: newContent.tag,
         id: newContent.id,
       });
-    } else {
+    } else if (id === "finnish") {
       setNewContent({
         english: newContent.english,
         finnish: e.target.value,
+        tag: newContent.tag,
+        id: newContent.id,
+      });
+    } else if (id === "tag") {
+      setNewContent({
+        english: newContent.english,
+        finnish: newContent.finnish,
+        tag: e.target.value,
         id: newContent.id,
       });
     }
