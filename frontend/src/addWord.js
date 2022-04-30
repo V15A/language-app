@@ -58,11 +58,11 @@ function AddWord() {
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({ english, finnish, tag }),
     };
-    console.log(conf);
+
     try {
       setIsSending(true);
       let res = await fetch("/words/add", conf);
-      console.log(res);
+
       setIsSending(false);
     } catch (err) {
       setIsSending(false);
