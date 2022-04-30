@@ -93,8 +93,8 @@ let connectionFunctions = {
   editById: (content) => {
     return new Promise((resolve, reject) => {
       pool.query(
-        "UPDATE words SET english = ?, finnish = ? WHERE id = ?",
-        [content.english, content.finnish, content.id],
+        "UPDATE words SET english = ?, finnish = ?, tag = ? WHERE id = ?",
+        [content.english, content.finnish, content.tag, content.id],
         (err, res) => {
           if (err) {
             console.log(err.message);
