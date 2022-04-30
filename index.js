@@ -33,6 +33,16 @@ app.get("/words/:tag([a-z]+)", async (req, res) => {
   }
 });
 
+app.put("/words/", async (req, res) => {
+  try {
+    let data = await db.editById(req.body);
+    res.send(data);
+  } catch (err) {
+    res.status(403).send("Invalid arguments");
+    console.log(err.message);
+  }
+});
+
 app.post("/words/add", async (req, res) => {
   try {
     console.log("adding");
