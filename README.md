@@ -2,7 +2,7 @@
 
 ## Short description
 
-This app currently supports learning in english to finnish. 
+This app currently supports learning finnish in english. 
 
 ## Features
 
@@ -10,7 +10,7 @@ Two different views offer ability for normal user/student to learn new words and
 
 ## How to use
 
-link to heroku https://visa-language-app.herokuapp.com/
+This app was hosted in heroku but due to heroku ending their free hosting option this app is currently not hosted anywhere.
 
 ## Screenshots
 
